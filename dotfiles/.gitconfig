@@ -1,0 +1,17 @@
+[user]
+	email = chooke@unca.edu
+	name = Chris Hooke 
+[core]
+	editor = nvim
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[alias]
+	sl = log --graph --oneline --all
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
