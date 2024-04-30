@@ -32,12 +32,13 @@
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
+    #   echo "Hello, ${config.home.username = "baconwrap";
     # '')
     pkgs.git
     pkgs.zsh
     pkgs.neovim
     pkgs.fzf
+    pkgs.gcc
     pkgs.tmux
   ];
 
@@ -48,6 +49,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+    "${config.xdg.configHome}/.." = {
+      source = ./dotfiles;
+      recursive = true;
+    }; 
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
